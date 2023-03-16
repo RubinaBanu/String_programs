@@ -1,0 +1,287 @@
+public class Strings {
+
+    public static void main(String[] args) {
+        Strings s = new Strings();
+        s.compare();
+        s.compare1();
+        s.compare2();
+        s.contains();
+        s.contains1();
+        s.endswith();
+        s.startswith();
+        s.startswith1();
+        s.string_length_count();
+        s.upper_lower_indexOf();
+        s.str_to_char();
+        s.display_substring();
+        s.concat();
+        s.char_to_str();
+    }
+
+
+
+//comparing one string with another string using compareTo inbuilt method --it produces result in numbers only either in positive or negative
+    //so only always store copareTo answer in int datatype
+    //Geeks - The Java String class compareTo() method compares the given string with the current string lexicographically.
+// It returns a positive number, negative number, or 0. It compares strings on the basis of the Unicode value of each character in the strings.
+//If the first string is lexicographically greater than the second string, it returns a positive number (difference of character value).
+// If the first string is less than the second string lexicographically, it returns a negative number, and if the first string is lexicographically equal to the second string, it returns 0.
+
+    //int compareTo(Object obj)
+    private void compare() {
+
+        String s1 = "Hello";//string
+        String s2 = new String("Hi");//object
+        int result = s1.compareTo(s2);// ----   int compareTo(Object obj)
+        System.out.println(result);
+    }
+//o/p:-4
+
+    //int compareTo(String anotherstring)
+    private void compare1() {
+
+        String s1 = "Hello";//string
+        String s2 = "Hi";//string
+        int result = s1.compareTo(s2);
+        System.out.println(result);
+    }
+
+    // int compareToIgnoreCase(String str)
+    //This method compares two strings lexicographically, ignoring case differences.
+
+    private void compare2() {
+
+        String s1 = "Hello";//string
+        String s2 = "HELLO";//string
+
+        System.out.print(
+                "Difference of Hello and HELLO (case sensitive) : ");
+        System.out.println(s1.compareTo(s2));
+
+
+        System.out.print(
+                "Difference of Hello and HELLO (case insensitive) : ");
+        System.out.println(s1.compareToIgnoreCase(s2));
+    }
+//output
+//    -4
+//     -4
+//    Difference of Hello and HELLO (case sensitive) : 32
+//    Difference of Hello and HELLO (case insensitive) : 0
+
+
+
+
+
+//java.lang.String.contains() method searches the sequence of characters in the given string.
+    //It returns true if sequence of char values are found in this string otherwise returns false.
+    //so contains method must store the result in boolean data type
+
+//output : true
+    private void contains() {
+        String s1 = "My name is Rubina";
+        boolean s = s1.contains("Rubina");
+        System.out.println("The string contains the needed value : " + s);
+    }
+// Case sensitive method to check whether given CharSequence is present or not.
+    //output : false
+    //This method does not work to search for a character.
+//This method does not find index of string if it is not present.
+//For above two functionalities, there is a better function String indexOf
+    private void contains1() {
+        String s1 = "My name is GFG";
+
+        // prints true
+        System.out.println(s1.contains("GFG"));
+
+        // prints false
+        System.out.println(s1.contains("gfg"));
+
+    }
+
+    //The java string endsWith() method checks whether the string ends with a specified suffix.
+    // This method returns a boolean value true or false.
+    private void endswith()
+    {
+        String s = "Welcome! to GeeksforGeeks";
+
+        // Output will be true as s ends with Geeks
+        boolean res = s.endsWith("Geeks");
+        System.out.println(res);
+    }
+
+    //output:true
+
+    //startWith() method of String class present in java.lang package is used to check whether the string starts with a specific prefix.
+//    There are two variants of the startswith() method that are as follows:
+//
+//    startsWith()
+//    startsWith(String prefix, int strt_pos)
+    private void startswith()
+    {
+
+
+            // Creating custom string
+            String str = new String(
+                    "Hello all how are you");
+
+            // Checking whether string starts with
+            // corresponding input string passed
+            // using startsWith() method and
+            // later storing result in boolean value
+            boolean ans1 = str.startsWith("Hello");
+            boolean ans2 = str.startsWith("hello");
+            boolean ans3 = str.startsWith("how");
+            // Printing the boolean value
+            System.out.println(ans1);
+            System.out.println(ans2);
+            System.out.println(ans3);
+
+    }
+    //output:
+//    true
+//    false
+//    false
+
+    private void startswith1(){
+        // Declaring and initialising custom string
+        String Str = new String("Welcome to Gandhi home");
+
+        // Display message
+        System.out.print(
+                "Check whether string starts with Welcome at pos 11 : ");
+        // Testing the prefix using startsWith() method
+        System.out.println(Str.startsWith("Welcome", 11));
+
+        // Display message
+        System.out.print(
+                "Check whether string starts with gandhi at pos 11 : ");
+        // Testing the prefix using startsWith() method
+        System.out.println(Str.startsWith("Gandhi", 11));
+    }
+//output
+    //Check whether string starts with Welcome at pos 11 : false
+    //Check whether string starts with gandhi at pos 11 : true
+
+    // TO CALCULATE THE STRING LENGTH
+
+    private void string_length_count()
+    {
+        String str="Rubina Banu";
+        System.out.println(str.length());//count with spaces
+        //o/p:11
+        //The trim() method in Java String is a built-in function that eliminates leading and trailing spaces.
+        //The trim() method doesn’t eliminate middle spaces.
+        //The return type of trim() method is String.
+       String str1="   Rubina Banu   ";
+      System.out.println(str1.trim());
+//o/p: Rubina Banu (spaces removed in front and back)
+    }
+
+    private void upper_lower_indexOf()
+    {
+        //The java string toUpperCase() method of String class has converted all characters of the string into an uppercase letter.
+
+        String str = "Welcome! to Goa";
+        String strin="Goa";
+        String str1 = str.toUpperCase();
+        System.out.println(str1);
+        //o/p:WELCOME! TO GOA
+        String str2 = str.toLowerCase();
+        System.out.println(str2);
+        //o/p: welcome! to goa
+        int index = str.indexOf('t');
+        System.out.println(index);
+        //o/p: 9//index starts from 0 .
+        int index1=str.indexOf(strin,8);//strin is subset.
+        System.out.println(index1);
+        //o/p: 12//index starts from 0 .
+        System.out.println(str.lastIndexOf('e'));
+        //o/p: 6 //it gives last index of e since there is 2 e present in string
+    }
+
+    private void str_to_char() {
+        //The java string toCharArray() method converts this string into character array.
+        // It returns a newly created character array, its length is similar to this string and its contents are initialized with the characters of this string.
+
+        String s1 = "GOOD morning";
+        char[] ch = s1.toCharArray();
+        for (int i = 0; i < ch.length; i++) {
+            System.out.println(ch[i]);
+        }
+    }
+        //output will be
+//G
+//O
+//O
+//D
+//
+//m
+//o
+//r
+//n
+//i
+//n
+//g
+    private void char_to_str()
+    {
+        char[] ch={'R','U','B','I','N','A'};
+        String str=String.valueOf(ch);
+        System.out.println("Char to string is "+str);
+
+        //or by using constructor we can print char to string
+        //String str=new String(ch);
+        //System.out.println(str);
+
+        //The java string valueOf() method converts different types of values into string.
+        // By the help of string valueOf() method, you can convert int to string, long to string, boolean to string, character to string, float to string, double to string, object to string and char array to string.
+        int iNum = 30;
+
+        double fNum = 4.56789;
+        String s = "91";
+
+        // Returns the string representation of int iNum.
+        String str1 = String.valueOf(iNum);
+
+        System.out.println("int to str: "+str1);
+
+        // concatenating string with iNum
+        System.out.println("int plus string into string : " +( str1 + s));
+
+        // Returns the string representation of the float
+        // fnum.
+        str1 = String.valueOf(fNum);
+        System.out.println("float to str: "+str1);
+
+        // concatenating string with fNum
+        System.out.println("float plus string into string : " +(s + str1));
+
+        //o/p:
+//        //int to str: 30
+//        //int plus string into string : 3091
+//        //float to str: 4.56789
+//        //float plus string into string : 914.56789
+
+    }
+        private void display_substring () {
+            String str = "New Vision";
+            String str1 = str.substring(4);
+            System.out.println("Substring is : " + str1);
+            String str2 = str.substring(4,6);//start place-4,end place-6
+            System.out.println("Substring is : " + str2);
+        }
+
+//o/p: Substring is : Vision
+//Substring is : Vi
+private void concat()
+{
+    //The concat() method appends (concatenate) a string to the end of another string.
+    String str = "New Vision";
+    String str2="India";
+    String str3=str.concat(str2);
+    System.out.println("ConCAT : "+str3);
+    //o/p : ConCAT : New VisionIndia
+}
+
+
+}

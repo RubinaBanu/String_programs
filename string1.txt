@@ -1,0 +1,115 @@
+public class Strings_program {
+    public static void main(String[] args) {
+        Strings_program s = new Strings_program();
+        s.count_of_one_char();
+        s.count_of_vowels_in_string();
+        s.print_only_numbers_in_string();
+        s.print_only_letters_in_string();
+        s.check_only_numbers_in_string_idea2();//to check it holds only numbers
+        //it is also known convert integer to string
+    }
+
+    private void count_of_one_char()//print particular letter from a word
+    {
+        String name="Rubina";
+        char ch='a';
+        int count=0;
+        for(int i=0;i<name.length();i++)
+        {
+            if(ch==name.charAt(i))
+            {
+                System.out.println(name.charAt(i));
+                count++;
+            }
+        }
+     System.out.println("Count of a is :"+count);
+    }
+    //o/p:
+    //a
+    //a
+    //Count of a is :2
+
+    private void count_of_vowels_in_string()
+    {
+        String str="Rubina";
+        int count=0;
+        for(int i=0;i<str.length();i++)
+        {
+            if(str.charAt(i)=='a'||str.charAt(i)=='e' ||str.charAt(i)=='i'||str.charAt(i)=='o'||str.charAt(i)=='u')
+
+            {
+                System.out.println("THE VOWELS ARE : "+ str.charAt(i));
+                count++;
+            }
+        }
+        System.out.println("count of vowel is : "+ count);
+    }
+//o/p
+//    THE VOWELS ARE : u
+//    THE VOWELS ARE : i
+//    THE VOWELS ARE : a
+//    count of vowel is : 3
+    private void print_only_numbers_in_string()
+
+    {
+        String str="Madurai625001";
+        for(int i=0;i<str.length();i++)
+        {
+            if(str.charAt(i)>='0' && str.charAt(i)<='9')
+            {
+                System.out.println(str.charAt(i));
+            }
+
+        }
+    }
+//    o/p:
+//            6
+//            2
+//            5
+//            0
+//            0
+//            1
+private void print_only_letters_in_string()//when number and letters are together
+{
+    String str="Madurai625001";
+    System.out.println("The letters are: ");
+    for(int i=0;i<str.length();i++)
+    {
+        if(str.charAt(i)>='0' && str.charAt(i)<='9')
+        {
+
+        }
+else
+    {
+        System.out.println(str.charAt(i));
+    }
+    }
+}
+//o/p:The letters are:
+//    M
+//    a
+//    d
+//    u
+//    r
+//    a
+//    i
+
+    private void check_only_numbers_in_string_idea2()
+    {
+        String str="Madurai625001";
+        //String str1="456";
+        try
+        {
+            int no=Integer.parseInt(str);
+            //int no1=Integer.parseInt(str1);
+            System.out.println(no);
+            //System.out.println(no1);
+            //no1=PRINTS ONLT NUMBERS
+        }
+        catch(NumberFormatException nfe)
+        {
+            System.out.println("Letters also present");
+        }
+    }
+    //O/p: Letters also present
+}
