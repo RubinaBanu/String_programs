@@ -1,0 +1,98 @@
+package com.PracticePrograms.Interview;
+
+public class ProgramDay8 
+{
+	
+	public static void main(String args[])
+	{
+		ProgramDay8.split();
+		//ProgramDay8.split1();
+		ProgramDay8.reverse_string();
+		ProgramDay8.palindrome();
+		ProgramDay8.print_adjacent_letters();
+	}
+	
+
+
+	private static void print_adjacent_letters() {
+		// TODO Auto-generated method stub
+		String str="Chennai";
+		for(int i=0;i<str.length()-1;i++)
+		{
+			char one= str.charAt(i);
+			char two=str.charAt(i+1);
+			if(one==two)
+			{
+				
+				System.out.println(one);
+			}
+		}
+	}
+
+
+
+	private static void reverse_string() 
+	{
+		// TODO Auto-generated method stub
+		String str="MaduraiTamilSangam";
+		String str1="";
+		for(int i=str.length()-1;i>=0;i--)
+		{
+			str1=str1+str.charAt(i);
+		}
+		System.out.println("Reversed string is :"+str1);
+	}
+
+//o/p: Reversed string is :magnaSlimaTiarudaM
+	private static void palindrome() 
+	{
+		// TODO Auto-generated method stub
+		String word="malayalam";
+		String word2 = "";
+		for(int i=word.length()-1;i>=0;i--)//reverse a string
+		{
+			word2=word2+word.charAt(i);
+		}
+		System.out.println(word2);
+		if(word.equals(word2))//comaparing two string objects--give all letters in small to check palindrome or not
+		{
+			System.out.println("The given word is palindrome");
+		}
+		else
+		{
+			System.out.println("The given word is not a palindrome");
+		}
+	}
+
+	public static void split()
+	{
+//		String str="Hello This Is My Home";
+//		System.out.println("Splited words are : ");
+//		String[] str1=str.split(" ");
+//		for(int i=0;i<str1.length;i++)
+//		{
+//			System.out.println(str1);
+//		}
+		
+	}
+	public static void split1()
+	{
+		String str="TodayIsFriday";
+		int space=0;
+		System.out.print(str.charAt(0));//we starting from loop from 1,so need to print first letter i.e charAt(0).[T]
+		//Why we starting loop from 1 means,within the loop the given condition is of the letter starts from capital A to Z means
+		//we need to give space.THat is the logic of our code.THats how we are going to split the sentence.
+		//But the starting letter for any sentence will be Capital. So according to our logic, We GET THE SPACE BEFORE THE FIRST LETTER ITSELF.
+		//so avoid it,we are printing first letter as it is.the loop logic starts from 1.
+		for(int i=1;i<str.length();i++)
+		{
+			if(str.charAt(i)>='A' && str.charAt(i)<='Z')
+			{
+			System.out.print(" ");
+			}
+		System.out.print(str.charAt(i));	
+		}
+	}
+	//o/p: Today Is Friday
+}
+
